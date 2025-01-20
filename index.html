@@ -103,7 +103,7 @@
                     Tracker</a>
             </li>
             <li><a href="#impact-and-value" class="text-blue-400 hover:underline">Impact and Value</a></li>
-            <li><a href="#interactive-google-sheet" class="text-blue-400 hover:underline">Link to the Tracker</a></li>
+            <li><a href="#interactive-google-sheet" class="text-blue-400 hover:underline">Tracker page</a></li>
         </ol>
     </nav>
 
@@ -208,11 +208,14 @@
         <div class="loader" id="loader">
             <div class="spinner"></div>
         </div>
-        <iframe
+        <div class= "w-screen px-8"> 
+            <iframe
             src="https://docs.google.com/spreadsheets/d/1IiJlsJ7US5rl6IYH1dfdNjjdoRbX4QCBnPaCMCTsGvc/edit?usp=sharing"
             class="w-full h-[600px] hidden" frameborder="0"
             onload="document.getElementById('loader').style.display = 'none'; this.style.display = 'block';">
-        </iframe>
+            </iframe>
+        </div>
+       
     </section>
 
     <!-- Key Features -->
