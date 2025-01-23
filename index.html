@@ -1,4 +1,4 @@
-m<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -25,7 +25,6 @@ m<!DOCTYPE html>
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.7);
-            /* Dark overlay for text visibility */
             z-index: -1;
         }
 
@@ -61,12 +60,55 @@ m<!DOCTYPE html>
                 transform: rotate(360deg);
             }
         }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-up {
+            animation: slideUp 1s ease-in-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 
-<body class="min-h-screen flex flex-col items-center px-6 relative">
+<body class="min-h-screen flex flex-col items-center px-6 relative fade-in">
     <!-- Header -->
-    <header class="text-center my-10">
+    <header class="text-center my-10 slide-up">
         <div class="flex items-center justify-center gap-4 mb-6">
             <span class="border-white rounded-md border-2 h-0 w-7"></span>
             <h1 class="font-bold text-3xl sm:text-4xl md:text-5xl tracking-wide leading-tight">
@@ -77,7 +119,8 @@ m<!DOCTYPE html>
     </header>
 
     <!-- Table of Contents -->
-    <nav id="toc" class="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-lg shadow-lg mb-12 w-full max-w-3xl">
+    <nav id="toc"
+        class="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-lg shadow-lg mb-12 w-full max-w-3xl fade-in">
         <h2 class="text-2xl font-semibold mb-4">Table of Contents</h2>
         <ol class="list-decimal ml-5 space-y-3">
             <li><a href="#problem-statement" class="text-blue-400 hover:underline">Problem Statement</a></li>
@@ -103,13 +146,14 @@ m<!DOCTYPE html>
                     Tracker</a>
             </li>
             <li><a href="#impact-and-value" class="text-blue-400 hover:underline">Impact and Value</a></li>
-            <li><a href="#interactive-google-sheet" class="text-blue-400 hover:underline">Tracker page</a></li>
+            <li><a href="#interactive-google-sheet" class="text-blue-400 hover:underline">Tracker Page</a></li>
         </ol>
     </nav>
 
     <!-- Problem Statement -->
-    <section id="problem-statement" class="bg-gray-800 bg-opacity-90 rounded-lg shadow-lg p-8 w-full max-w-4xl mb-10">
-        <h2 class="text-3xl font-bold mb-4">Problem Statement</h2>
+    <section id="problem-statement"
+        class="bg-gray-800 bg-opacity-90 rounded-lg shadow-lg p-8 w-full max-w-4xl mb-10 fade-in">
+        <h2 class="text-3xl font-bold mb-4 text-[#AECBFA]">Problem Statement</h2>
         <p class="text-gray-300 leading-relaxed">
             Effective inventory management is critical for retail businesses to ensure stock availability, reduce
             operational costs, and avoid missed sales opportunities. For Techtronics, an electronics and gadget store,
@@ -120,8 +164,8 @@ m<!DOCTYPE html>
     </section>
 
     <!-- Objective -->
-    <section id="objective" class="bg-gray-800 bg-opacity-90 rounded-lg shadow-lg p-8 w-full max-w-4xl mb-10">
-        <h2 class="text-3xl font-bold mb-4">Objective</h2>
+    <section id="objective" class="bg-gray-800 bg-opacity-90 rounded-lg shadow-lg p-8 w-full max-w-4xl mb-10 fade-in">
+        <h2 class="text-3xl font-bold mb-4 text-[#AECBFA]">Objective</h2>
         <ul class="list-disc pl-5 text-gray-300">
             <li>Provides real-time visibility into stock availability.</li>
             <li>Automates the identification of products requiring restocking.</li>
@@ -132,8 +176,8 @@ m<!DOCTYPE html>
 
     <!-- Solutions Implemented -->
     <section id="solutions-implemented"
-        class="bg-gray-800 bg-opacity-90 rounded-lg shadow-lg p-8 w-full max-w-4xl mb-10">
-        <h2 class="text-3xl font-bold mb-4">Solutions Implemented</h2>
+        class="bg-gray-800 bg-opacity-90 rounded-lg shadow-lg p-8 w-full max-w-4xl mb-10 fade-in">
+        <h2 class="text-3xl font-bold mb-4 text-[#AECBFA]">Solutions Implemented</h2>
 
         <h3 id="data-cleaning-and-preparation" class="text-2xl font-semibold mb-3">1. Data Cleaning and Preparation</h3>
         <ul class="list-disc pl-5 text-gray-300">
@@ -149,8 +193,8 @@ m<!DOCTYPE html>
         <ul class="list-disc pl-5 text-gray-300">
             <li><strong>Logic Implementation:</strong> Created a new column with a stock level indicator using the IFS
                 formula:
-                <pre
-                    class="bg-gray-900 text-white p-2 rounded-lg">=IFS(F2=0,TRACKER!$C$3,F2<=50,TRACKER!$C$2,F2>50,TRACKER!$C$1)</pre>
+                <p class="bg-gray-900 text-white p-2 rounded-lg text-[0.65rem] md:text-sm lg:text-base">
+                    =IFS(F2=0,TRACKER!$C$3,F2 <=50,TRACKER!$C$2,F2>50,TRACKER!$C$1)</pre>
             </li>
             <li><strong>Thresholds:</strong>
                 <ul class="list-disc pl-5">
@@ -165,8 +209,8 @@ m<!DOCTYPE html>
         <ul class="list-disc pl-5 text-gray-300">
             <li><strong>Logic Implementation:</strong> Ensured data integrity by checking for duplicate Product IDs
                 using:
-                <pre class="bg-gray-900 text-white p-2 rounded-lg">
-                    =IF(COUNTIF(B:B, B2) > 1, "Duplicate", "Unique")</pre>
+                <p class="bg-gray-900 text-white p-2 rounded-lg text-[0.75rem] md:text-sm lg:text-base">
+                    =IF(COUNTIF(B:B, B2) > 1, "Duplicate", "Unique")</p>
             </li>
             <strong class="text-sm">This confirmed that each product ID in the dataset was unique,
                 preventing errors in
@@ -179,9 +223,9 @@ m<!DOCTYPE html>
             <li><strong>Logic Implementation:</strong> Applied color-coded formatting to the stock level column to
                 visually prioritize restocking needs:
             </li>
-            <pre class="bg-gray-900 text-white p-2 rounded-lg">
-                =IF(COUNTIF(B:B, B2) > 1, "Duplicate", "Unique")</pre>
-            <li><strong>Thresholds:</strong>
+            <p class="bg-gray-900 text-white p-2 rounded-lg text-[0.75rem] md:text-sm lg:text-base">
+                =IF(COUNTIF(B:B, B2) > 1, "Duplicate", "Unique")</p>
+            <li class="mt-2"><strong class="text-red-700">Thresholds:</strong>
                 <p>For items marked as "Available," the spend is set to "NIL."
                     For "Running Low" or "Out of Stock," the formula multiplies the reorder quantity by the unit price.
                 </p>
@@ -193,36 +237,39 @@ m<!DOCTYPE html>
             <li><strong>Logic Implementation:</strong> Added a Reorder Spend column to calculate the expected cost of
                 restocking items that are running low or out of stock:
             </li>
-            <li><strong>Thresholds:</strong>
+            <li class="mt-2"><strong class="text-red-700">Thresholds:</strong>
                 <ul class="list-disc pl-5">
-                    <li><strong>Red:</strong> Out of Stock</li>
-                    <li><strong>Yellow:</strong> Running Low</li>
-                    <li><strong>Green:</strong> Available</li>
+                    <li class="text-red-700 "><strong class="text-gray-300">Red:</strong>
+                        <span class="text-gray-300">Out of Stock</span>
+                    </li>
+                    <li class="text-yellow-500"><strong class="text-gray-300"> Yellow:</strong> <span
+                            class="text-gray-300">Running Low</span>
+                    </li>
+                    <li class="text-green-600"><strong class="text-gray-300">Green:</strong> <span
+                            class="text-gray-300">Available</span></li>
                 </ul>
             </li>
         </ul>
     </section>
 
     <!-- Interactive Google Sheet -->
-    <section id="interactive-google-sheet" class="w-full max-w-5xl rounded-lg overflow-hidden shadow-lg mb-10 relative">
+    <section id="interactive-google-sheet" class="w-full rounded-lg overflow-hidden shadow-lg mb-10 relative fade-in">
         <div class="loader" id="loader">
             <div class="spinner"></div>
         </div>
-       <div class="flex justify-center w-screen"> 
-    <iframe
-        src="https://docs.google.com/spreadsheets/d/1IiJlsJ7US5rl6IYH1dfdNjjdoRbX4QCBnPaCMCTsGvc/edit?usp=sharing"
-        class="h-[600px] w-screen hidden" frameborder="0"
-        onload="document.getElementById('loader').style.display = 'none'; this.style.display = 'block';">
-    </iframe>
-</div>
-
-       
+        <div class="w-full flex justify-center">
+            <iframe
+                src="https://docs.google.com/spreadsheets/d/1IiJlsJ7US5rl6IYH1dfdNjjdoRbX4QCBnPaCMCTsGvc/edit?usp=sharing"
+                class="h-[600px] w-full hidden" frameborder="0"
+                onload="document.getElementById('loader').style.display = 'none'; this.style.display = 'block';">
+            </iframe>
+        </div>
     </section>
 
     <!-- Key Features -->
     <section id="key-features-of-the-tracker"
-        class="bg-gray-800 bg-opacity-90 rounded-lg shadow-lg p-8 w-full max-w-4xl mb-10">
-        <h2 class="text-3xl font-bold mb-4">Key Features of the Tracker</h2>
+        class="bg-gray-800 bg-opacity-90 rounded-lg shadow-lg p-8 w-full max-w-4xl mb-10 fade-in">
+        <h2 class="text-3xl font-bold mb-4 text-[#AECBFA]">Key Features of the Tracker</h2>
         <ul class="list-disc pl-5 text-gray-300">
             <li><strong>Automated Stock Monitoring:</strong> The tracker dynamically updates stock levels and provides
                 insights into product availability.</li>
@@ -236,8 +283,9 @@ m<!DOCTYPE html>
     </section>
 
     <!-- Impact and Value -->
-    <section id="impact-and-value" class="bg-gray-800 bg-opacity-90 rounded-lg shadow-lg p-8 w-full max-w-4xl mb-10">
-        <h2 class="text-3xl font-bold mb-4">Impact and Value</h2>
+    <section id="impact-and-value"
+        class="bg-gray-800 bg-opacity-90 rounded-lg shadow-lg p-8 w-full max-w-4xl mb-10 fade-in">
+        <h2 class="text-3xl font-bold mb-4 text-[#AECBFA]">Impact and Value</h2>
         <ul class="list-disc pl-5 text-gray-300">
             <li>Reducing time spent on manual stock checks.</li>
             <li>Ensuring products are adequately stocked, minimizing stockouts and lost sales.</li>
@@ -247,7 +295,7 @@ m<!DOCTYPE html>
     </section>
 
     <!-- Footer -->
-    <footer class="text-center py-6 text-gray-500">
+    <footer class="text-center py-6 text-gray-500 fade-in">
         <p>This project demonstrates my ability to apply data analytics and Google Sheets functionalities to solve
             real-world inventory challenges effectively.</p>
     </footer>
@@ -263,7 +311,6 @@ m<!DOCTYPE html>
             });
         });
 
-        // Active Section Highlighting
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('#toc a');
 
